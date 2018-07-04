@@ -17,7 +17,7 @@
         ?>
         <p><strong><?= htmlspecialchars($comment['author']) ?><br></strong>le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-        <a href="index.php?action=comment&amp;id=<?= $comment['id'] ?>"> (signaler)</a>
+        <a href="index.php?action=signalComment&amp;id=<?= $comment['id']; ?>&amp;chapterId=<?= $_GET['id']; ?>"> (signaler)</a>
         <br><br>
         <?php
         } 
@@ -39,4 +39,4 @@
     </div>
 </div>
 <?php  $content = ob_get_clean(); ?>
-<?php require 'view/frontend/template.php'; ?>
+<?php require 'template.php'; ?>

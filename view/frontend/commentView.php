@@ -5,14 +5,13 @@
 <div class="container commentaire">
     <div class="jumbotron jumbotron-fluid commentaire">
         <h1>Commentaires</h1>
-        <br>
-        <h4><?= nl2br(htmlspecialchars($comment['comment'])) ?></h4>
-        <br>
-        <p>En attente de modération.......</p>
+        
+        <p>Ce commentaire est en attente de modération.<br> 
+        Je me dépêche  ;)</p>
         
     </div>
 
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require'view/frontend/template.php'; ?>
+<?php require'template.php'; ?>

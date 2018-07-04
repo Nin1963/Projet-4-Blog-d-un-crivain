@@ -42,7 +42,12 @@ try {
                 throw new Exception('Tous les champs ne sont pas requis!');
             }
         } elseif ($_GET['action'] == 'signalComment') {
-
+            if (!empty($_GET['id']) && $_GET['id'] > 0) {
+                signalComment($_GET['id'], $_GET['chapterId']);
+                
+            } else {
+                throw new Exception('Votre requête n\'a pu aboutir :(');
+            }
         }
     } else {
         listChapters();

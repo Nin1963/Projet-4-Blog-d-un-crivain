@@ -27,11 +27,12 @@ function addChapter($title, $content)
     $chapterManager = new \Alaska\Blog\Model\ChapterManager();
 
     $affectedLines = $chapterManager->ajoutChapter($title, $content);
-
-    if ($affectedLines === false) {
-        throw new Exception('Impossible d\'ajouter le chapitre !');
-    } else {
+   
+    if ($affectedLines === true) {
         header('Location: adminIndex.php?action=listChapters');
+        
+    } else {
+        throw new Exception('Impossible d\'ajouter le chapitre !');
     }
 }
 
@@ -51,9 +52,8 @@ function modifyChapter($id, $title, $content)
 function deleteChapter($id)
 {
     $chapterManager = new \Alaska\Blog\Model\ChapterManager();
-    
     $supprimChapter = $chapterManager->deleteChapter($id);
-
+    
     if ($supprimChapter > 0) {
         header('Location: adminIndex.php');
     } else {
@@ -68,6 +68,13 @@ function comment()
     $comment = $commentManager->getComment($_GET['id']);
 
     include 'view/frontend/commentView.php';
+}
+
+function signalComment() 
+{
+    $commentManager = new \Alaska\Blog\Model\CommentManager();
+    $signalComment = $commentManager->getSignal($_GET['signal_comment'] = 1);
+    include 'view/backend/signalCommentView.php';
 }
 
 

@@ -30,7 +30,6 @@ try {
                 throw new Exception('Aucun identifiant de chapitre envoyé'); 
             }
         } elseif ($_GET['action'] == 'deleteChapter') {
-          
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deleteChapter($_GET['id']);
             } else {

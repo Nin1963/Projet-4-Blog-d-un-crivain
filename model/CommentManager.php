@@ -33,11 +33,31 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
-    public function getSignalComment()
+    public function signalComment($commentId)
     {
         $db = $this-> dbConnect();
-        $comments = $db->query('SELECT comments.id, chapters.title, comments.chapter_id, author, content, DATE_FORMAT(comment_date, \'%d/%m/%Y \') AS comment_date_fr FROM comments INNER JOIN chapters ON chapters.id = comments.chapter_id WHERE signal_comment = 1 ORDER BY comment_date DESC');
+        $req = $db->prepare('UPDATE comments SET signal_comment = 1 WHERE id = ?');
+        $req->execute(array($commentId));
+        $signal = $req->rowCount(); 
 
-        return $comments;            
+        return $signal;         
+    }
+
+    public function getSignalComments()
+    {
+        $db = $this->dbConnect();
+        $comments = $db->query('SELECT comments.id, chapters.title, comments.chapter_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y \') AS comment_date_fr FROM comments INNER JOIN chapters ON chapters.id = comments.chapter_id WHERE signal_comment =1 ORDER BY comment_date DESC');
+
+        return $comments;
+    }
+
+    public function deleteComment($commentId) 
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $req->execute(array($commentId));
+        $delete = $req->rowCount();
+        
+        return $delete;
     }
 }

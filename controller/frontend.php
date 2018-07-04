@@ -10,8 +10,26 @@ function admin()
     $adminManager = new \Alaska\Blog\Model\AdminManager();
     $login = $adminManager->getLogin();
     $password = $adminManager->getPassword();
-
+    
     include 'view/backend/listChaptersView.php';
+}
+
+function checkLogin($login, $password) 
+{
+    $adminManager = new \Alaska\Blog\Model\AdminManager();
+    $adminInfo = $adminManager->checkLogin($_POST['login'], sha1($_POST['password']));
+    
+    if (is_array($adminInfo)) {
+        $_SESSION['administrateur'] = true;
+        $_SESSION['login'] = $adminInfo['login'];
+        $_SESSION['password'] = $adminInfo['password'];
+        header('Location: adminIndex.php');
+    } else {
+        
+        include 'view/frontend/connexionView.php';
+    }
+    
+    
 }
 
 function listChapters()
@@ -54,8 +72,18 @@ function comment()
     include 'view/frontend/commentView.php';
 }
 
-function signalComment()
+function signalComment($commentId, $chapterId)
 {
     $commentManager = new \Alaska\Blog\Model\CommentManager();
-    $signal = $commentManager->signalComment();
+    $signal = $commentManager->signalComment($commentId);
+    if ($signal > 0) {
+        header('Location: index.php?');
+    } else {
+        echo 'Ce commentaire est en attente de modération, je me dépêche ;)' ;
+
+    }
+
+    include 'view/frontend/commentView.php';
 }
+
+

@@ -11,7 +11,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
-	<link href="../../public/css/style.css" rel="stylesheet" />
+	
+	<link href="public/css/style.css" rel="stylesheet" />
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
@@ -28,7 +29,7 @@
 			
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="index.php?">Accueil<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chapitres</a>
@@ -40,7 +41,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="view/frontend/connexionView.php">Admin</a>
+						<a class="nav-link" href="index.php?action=connexion">Admin</a>
 					</li>
 				</ul>
 			</div>

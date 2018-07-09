@@ -33,7 +33,7 @@
     </div>
     <div class="jumbotron jumbotron-fluid">
         <h2><strong>Modifier le chapitre</strong></h2>
-        <form name="formulaire" id="formulaire" action="adminIndex.php?action=modifyChapter&amp;id=<?= $chapter['id'] ?>" method="post">
+        <form name="formulaire" id="formulaire" action="index.php?action=modifyChapter&amp;id=<?= $chapter['id'] ?>" method="post">
             <input type="hidden" name="id" value="<?= $chapter['id'] ?>">
             <div class="form-group">
                 <label for="title"><strong>Titre</strong></label> : 
@@ -47,7 +47,7 @@
             <input type="submit" value="Modifier"> Ou
             </div>
         </form> 
-        <form name="formulaire" id="formulaire" action="adminIndex.php?action=deleteChapter&amp;id=<?= $chapter['id'] ?> " method="post">
+        <form name="formulaire" id="formulaire" action="index.php?action=deleteChapter&amp;id=<?= $chapter['id'] ?> " method="post">
             <div class="delete">
                 <input type="submit" value="Supprimer ce chapitre">
             </div> 

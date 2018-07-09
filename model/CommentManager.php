@@ -39,7 +39,7 @@ class CommentManager extends Manager
         $req = $db->prepare('UPDATE comments SET signal_comment = 1 WHERE id = ?');
         $req->execute(array($commentId));
         $signal = $req->rowCount(); 
-
+       
         return $signal;         
     }
 
@@ -47,9 +47,11 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
         $comments = $db->query('SELECT comments.id, chapters.title, comments.chapter_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y \') AS comment_date_fr FROM comments INNER JOIN chapters ON chapters.id = comments.chapter_id WHERE signal_comment =1 ORDER BY comment_date DESC');
-
+        
         return $comments;
+      
     }
+
 
     public function deleteComment($commentId) 
     {

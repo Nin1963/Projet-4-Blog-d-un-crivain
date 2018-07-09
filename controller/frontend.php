@@ -1,9 +1,11 @@
 <?php
 
+
 // Chargement des classes
 require_once 'model/ChapterManager.php';
 require_once 'model/CommentManager.php';
 require_once 'model/AdminManager.php';
+
 
 function admin()
 {
@@ -23,12 +25,12 @@ function checkLogin($login, $password)
         $_SESSION['administrateur'] = true;
         $_SESSION['login'] = $adminInfo['login'];
         $_SESSION['password'] = $adminInfo['password'];
-        header('Location: adminIndex.php');
+        header('Location: index.php?action=listChaptersBackend');
     } else {
         
         include 'view/frontend/connexionView.php';
     }
-    
+   
     
 }
 

@@ -8,11 +8,19 @@
         <h1>Commentaires signalés</h1>
             <table class="table table-bordeless">
                 <tbody>
-                <?php while ($data = $signals->fetch()): ?>
-                
+                <?php while ($comment = $comments->fetch()): ?>
                     <tr>
-                        <td scope="row"><?= htmlspecialchars($data['signal_comment'] = 1) ?>>
+                    <form action="index.php? action=">
+                        <td scope="row"><?= htmlspecialchars($comment['title']) ?>
                         </td>
+                        <td scope="row"><?= htmlspecialchars($comment['author']) ?></td>
+                        <td scope="row"><?= htmlspecialchars($comment['comment']) ?></td>
+                        <td scope="row"><?= htmlspecialchars($comment['comment_date_fr']) ?></td>
+                        <td scope="row">
+                        
+                            <input type="submit" value ="supprimer">
+                            </td>
+                        </form>
                     </tr>
                 <?php endwhile; ?>
                 </tbody>

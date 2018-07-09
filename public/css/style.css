@@ -114,8 +114,17 @@ footer.row
 	margin-left: 120px;
 }
 
+.mceContentBody
+{
+	font-size: 15px;
+}
+
 @media(min-width:768px) {
 	.navbar-right {
 		margin-right: 0px;
+	}
+
+	#content {
+		width: 95%;
 	}
 }

@@ -6,16 +6,6 @@ require_once 'model/ChapterManager.php';
 require_once 'model/CommentManager.php';
 require_once 'model/AdminManager.php';
 
-
-function admin()
-{
-    $adminManager = new \Alaska\Blog\Model\AdminManager();
-    $login = $adminManager->getLogin();
-    $password = $adminManager->getPassword();
-    
-    include 'view/backend/listChaptersView.php';
-}
-
 function checkLogin($login, $password) 
 {
     $adminManager = new \Alaska\Blog\Model\AdminManager();
@@ -25,13 +15,11 @@ function checkLogin($login, $password)
         $_SESSION['administrateur'] = true;
         $_SESSION['login'] = $adminInfo['login'];
         $_SESSION['password'] = $adminInfo['password'];
+        
         header('Location: index.php?action=listChaptersBackend');
     } else {
-        
         include 'view/frontend/connexionView.php';
     }
-   
-    
 }
 
 function listChapters()
@@ -82,7 +70,6 @@ function signalComment($commentId, $chapterId)
         header('Location: index.php?');
     } else {
         echo 'Ce commentaire est en attente de modération, je me dépêche ;)' ;
-
     }
 
     include 'view/frontend/commentView.php';

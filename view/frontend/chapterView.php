@@ -4,10 +4,9 @@
 
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <img class="col-sm-12 col-md-5" src="../../img/newYork.jpg" alt="new york">
         <h1><?= htmlspecialchars($chapter['title']) ?></h1><em> le <?= $chapter['creation_date_fr'] ?></em>
         <br>
-        <p><?= nl2br(htmlspecialchars($chapter['content'])) ?></p>
+        <p><?= ($chapter['content']) ?></p>
     </div>
     <div class="jumbotron jumbotron-fluid">
         <h2><strong>Commentaires</strong></h2>

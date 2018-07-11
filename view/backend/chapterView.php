@@ -7,13 +7,13 @@
         <img class="col-sm-12 col-md-5" src="../../img/newYork.jpg" alt="new york">
 
         <h1>
-        <?= htmlspecialchars($chapter['title']) ?>
+        <?= ($chapter['title']) ?>
         </h1>
         <br><br>
         <em> le <?= $chapter['creation_date_fr'] ?></em>
         <br>
         <p>
-        <?= nl2br(htmlspecialchars($chapter['content'])) ?>
+        <?= ($chapter['content']) ?>
         </p>
     </div>
     <div class="jumbotron jumbotron-fluid">

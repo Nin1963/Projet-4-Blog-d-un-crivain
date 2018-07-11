@@ -114,7 +114,7 @@ footer.row
 	margin-left: 120px;
 }
 
-.mceContentBody
+textarea
 {
 	font-size: 15px;
 }

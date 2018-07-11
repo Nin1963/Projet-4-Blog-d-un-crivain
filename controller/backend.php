@@ -15,7 +15,6 @@ function chapterBackend()
 {
     $chapterManager = new \Alaska\Blog\Model\ChapterManager();
     $commentManager = new \Alaska\Blog\Model\CommentManager();
-
     $chapter = $chapterManager->getChapter($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
@@ -25,7 +24,6 @@ function chapterBackend()
 function addChapter($title, $content)
 {
     $chapterManager = new \Alaska\Blog\Model\ChapterManager();
-
     $affectedLines = $chapterManager->ajoutChapter($title, $content);
    
     if ($affectedLines === true) {
@@ -39,10 +37,9 @@ function addChapter($title, $content)
 function modifyChapter($id, $title, $content)
 {    
     $chapterManager = new \Alaska\Blog\Model\ChapterManager();
-    
     $affectedLines = $chapterManager->updateChapter($id, $title, $content);
     
-    if($affectedLines === false) {
+    if ($affectedLines === false) {
         throw new Exception('Impossible de modifier ce chapitre !');
     } else {
         header('Location: index.php?action=listChaptersBackend');
@@ -76,6 +73,30 @@ function signalCommentBackend()
     $comments = $commentManager->getSignalComments();
     
     include 'view/backend/signalCommentView.php';
+}
+
+function deleteComment($id)
+{
+    $commentManager = new \Alaska\Blog\Model\CommentManager();
+    $supprimComment = $commentManager->deleteComment($id);
+
+    if ($supprimComment > 0) {
+        header('Location: index.php?action=commentSignal');
+    } else {
+        throw new Exception('Impossible de supprimer ce commentaire !');
+    }
+}
+
+function approveComment($id)
+{
+    $commentManager = new \Alaska\Blog\Model\CommentManager();
+    $commentApprove = $commentManager->approveComment($id);
+
+    if ($commentApprove > 0) {
+        header('Location: index.php?action=commentSignal');
+    } else {
+        throw new Exception('Impossible d\'approuver ce commentaire !');
+    }
 }
 
 function logOut()

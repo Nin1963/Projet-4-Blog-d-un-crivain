@@ -11,7 +11,7 @@
     </div>
     <div class="jumbotron jumbotron-fluid">
         <h1 class="chapitre">Chapitres</h1>
-            <table class="table table-borderless">
+            <table class="table table-borderless table-dark">
                 <tbody>
                 <?php while($data = $chapters->fetch()): ?>
                     <tr>
@@ -27,10 +27,13 @@
     <div class="jumbotron jumbotron-fluid">
         <h2><strong>Ajouter un chapitre</strong></h2>
             <form action="index.php?action=addChapter" method="post">
-                <label for="title"><strong>Titre</strong></label> : <input type="text" name="title" id="title"><br><br>
-                <label for="content"><strong>Nouveau chapitre :</strong></label> 
-                <textarea id="content" name="content" rows="25" cols="98"></textarea>
-                <br><br>
+                <p>
+                    <label for="title"><strong>Titre</strong></label> : <input type="text" name="title" id="title">
+                </p>
+                <p>
+                    <label for="content"><strong>Nouveau chapitre :</strong></label> 
+                    <textarea id="content" name="content" rows="25" cols="98"></textarea>
+                </p>
                 <button style="margin-left:150px">Ajouter</button>
             </form>
     </div>

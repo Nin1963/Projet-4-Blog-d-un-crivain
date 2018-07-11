@@ -52,14 +52,23 @@ class CommentManager extends Manager
       
     }
 
-
-    public function deleteComment($commentId) 
+    public function deleteComment($id) 
     {
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM comments WHERE id = ?');
-        $req->execute(array($commentId));
+        $req->execute(array($id));
         $delete = $req->rowCount();
         
         return $delete;
+    }
+
+    public function approveComment($id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE comments SET signal_comment = 0 WHERE id = ?');
+        $req->execute(array($id));
+        $signal = $req->rowCount(); 
+       
+        return $signal;     
     }
 }

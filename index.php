@@ -37,7 +37,6 @@ try {
             } else {
                 throw new Exception('Aucun identifiant de commentaire envoyé'); 
             } 
-        
         } elseif ($_GET['action'] == 'signalComment') {
             if (!empty($_GET['id']) && $_GET['id'] > 0) {
                 signalComment($_GET['id'], $_GET['chapterId']);
@@ -90,6 +89,8 @@ try {
             }
         } elseif ($_GET['action'] == 'deconnexion') {
             logOut();
+        } elseif ($_GET['action'] == 'listTitles') {
+            listTitles();
         }
     } else {
         listChapters();

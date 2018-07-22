@@ -1,3 +1,9 @@
+<?php 
+
+$chapterManager = new \Alaska\Blog\Model\ChapterManager();
+$chapters = $chapterManager->getChapters();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +17,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
-	<link href="public/css/style.css" rel="stylesheet" />
+	<link href="public/css/style.css" rel="stylesheet">
+	<link rel="shortcut icon" href="public/img/fond.ico">
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
@@ -25,9 +32,14 @@
   			</button>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-					<li class="nav-item">
-						<a class="nav-link" href="index.php?action=listChaptersBackend">Chapitres</a>
-					</li>
+				<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="index.php?action=listChaptersBackend" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chapitres</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php while($data = $chapters->fetch()): ?>
+                            <a class="dropdown-item" href="index.php?action=chapterBackend&amp;id=<?= $data['id'] ?>"><?= $data['title'] ?></a>
+                        <?php endwhile; ?>   
+                        </div>
+                    </li>
 					<li class="nav-item">
 						<a class="nav-link deconnexion" href="index.php?action=deconnexion">Déconnexion</a>
 					</li>

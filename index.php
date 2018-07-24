@@ -89,9 +89,7 @@ try {
             }
         } elseif ($_GET['action'] == 'deconnexion') {
             logOut();
-        } elseif ($_GET['action'] == 'listTitles') {
-            listTitles();
-        }
+        } 
     } else {
         listChapters();
     } 

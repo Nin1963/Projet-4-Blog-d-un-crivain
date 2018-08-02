@@ -1,11 +1,10 @@
-
-
 <?php $title = 'Administration'; ?>
 
 <?php ob_start(); ?>
+
 <div class="container">
     <div class="jumbotron jumbtron-fluid">
-        <h1>Commentaires signalés</h1>
+        <h1><strong>Commentaires signalés</strong></h1>
         <div class="table-responsive">
             <table class="table table-bordeless table-hover table-dark">
                 <thead class="thead-dark">

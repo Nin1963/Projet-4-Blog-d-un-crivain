@@ -1,13 +1,10 @@
-
-
 <?php $title = 'Administration'; ?>
 
 <?php  ob_start(); ?>
 
 <div class="container">
-
     <div class="jumbotron jumbotron-fluid mot_de_passe">
-        <h1 class="pass">Mot de passe</h1>
+        <h1 class="pass"><strong>Mot de passe</strong></h1>
         <h3>Veuillez remplir ces champs avec votre login et votre mot de passe pour accéder à la partie administration de votre site</h3>
         <h6 style="text-align:center">si votre mot de passe est erroné, vous reviendrez sur cette page ;)</h6>
         <form name="password" id="password" action="index.php?action=login" method="post">

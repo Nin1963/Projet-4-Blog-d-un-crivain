@@ -3,9 +3,7 @@
 namespace Alaska\Blog\Model;
 
 require_once "model/Manager.php";
-/**
-*
- */
+
 class ChapterManager extends Manager
 {
     public function getChapters()
@@ -23,8 +21,18 @@ class ChapterManager extends Manager
         $req->execute(array($chapterId));
         $chapter = $req->fetch();
 
-        return $chapter;
+        return $chapter; 
     }
+
+    public function ajoutChapter($title, $content)
+    {
+        $db = $this->dbConnect();
+        $chapter = $db->prepare('INSERT INTO chapters(title, content, creation_date) VALUES(?, ?, NOW())');
+        $affectedLines = $chapter->execute(array($title, $content));
+
+        return $affectedLines;
+    }
+
     public function updateChapter($id, $title, $content)
     {    
         $db = $this->dbConnect();
@@ -36,14 +44,7 @@ class ChapterManager extends Manager
         
         return $affectedLines;
     }
-    public function ajoutChapter($title, $content)
-    {
-        $db = $this->dbConnect();
-        $chapter = $db->prepare('INSERT INTO chapters(title, content, creation_date) VALUES(?, ?, NOW())');
-        $affectedLines = $chapter->execute(array($title, $content));
-
-        return $affectedLines;
-    }
+    
     public function deleteChapter($id)
     {
         $db = $this->dbConnect();

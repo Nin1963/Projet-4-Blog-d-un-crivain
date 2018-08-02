@@ -14,6 +14,7 @@ class CommentManager extends Manager
 
         return $comments;
     }
+    
     public function getComment($commentId)
     {
         $db = $this->dbConnect();

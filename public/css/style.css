@@ -13,6 +13,11 @@ body {
 	
 }
 
+.title
+{
+	color: white;
+}
+
 .chapitre
 {
 	font-size: 60px;
@@ -23,6 +28,11 @@ body {
 {
 	font-size: 18px;
 	margin-left: -460px;
+}
+
+.date
+{
+	text-align: center;
 }
 
 .commentaire
@@ -49,12 +59,12 @@ body {
 	text-align: left;
 }
 
-#bienvenue
+.bienvenue
 {
-	
+	color: white;
 }
 
-h2, h3 
+h1, h2, h3 
 {
 	text-align: center;
 }
@@ -74,6 +84,11 @@ form
 {
 	margin-top: 80px;
 	margin-left: 20px;
+}
+
+.comment
+{
+	margin-top: 0px;
 }
 
 footer.row 

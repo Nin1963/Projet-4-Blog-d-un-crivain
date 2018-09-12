@@ -52,7 +52,7 @@ try {
             $backend->listChaptersBackend();
         } elseif ($_GET['action'] == 'chapterBackend') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                chapterBackend();
+                $backend->chapterBackend();
             } else {
                 throw new Exception('Aucun identifiant de chapitre envoyé');
             }
